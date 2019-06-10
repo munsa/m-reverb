@@ -14,10 +14,16 @@ MreverbAudioProcessorEditor::~MreverbAudioProcessorEditor()
 
 void MreverbAudioProcessorEditor::paint (Graphics& g)
 {
+	// Background
     g.fillAll (Colour(0xff36454f));
 
-	header.setBounds(0, 0, 800, 50);
+	// Header
+	header.setBounds(0, 0, getWidth(), 50);
 	addAndMakeVisible(header);
+
+	// Body
+	body.setBounds(20, header.getHeight()+20, getWidth()-40, getHeight()-header.getHeight()-40);
+	addAndMakeVisible(body);
 }
 
 void MreverbAudioProcessorEditor::resized()
