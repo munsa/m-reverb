@@ -1,15 +1,15 @@
 #include "../../../JuceLibraryCode/JuceHeader.h"
-#include "Header.h"
+#include "HeaderComponent.h"
 
-Header::Header()
+HeaderComponent::HeaderComponent()
 {
 }
 
-Header::~Header()
+HeaderComponent::~HeaderComponent()
 {
 }
 
-void Header::paint (Graphics& g)
+void HeaderComponent::paint (Graphics& g)
 {
     g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
 
@@ -22,6 +22,6 @@ void Header::paint (Graphics& g)
                 Justification::centred, true);
 }
 
-void Header::resized()
+void HeaderComponent::resized()
 {
 }

@@ -2,15 +2,15 @@
 
 #include "../../../JuceLibraryCode/JuceHeader.h"
 
-class Header    : public Component
+class HeaderComponent : public Component
 {
 public:
-    Header();
-    ~Header();
+	HeaderComponent();
+    ~HeaderComponent();
 
     void paint (Graphics&) override;
     void resized() override;
 
 private:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Header)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HeaderComponent)
 };
