@@ -9,7 +9,7 @@
 */
 
 #include "PluginProcessor.h"
-#include "PluginEditor.h"
+#include "../Components/MainComponent.h"
 
 //==============================================================================
 MreverbAudioProcessor::MreverbAudioProcessor()

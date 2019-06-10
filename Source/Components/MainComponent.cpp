@@ -8,8 +8,8 @@
   ==============================================================================
 */
 
-#include "PluginProcessor.h"
-#include "PluginEditor.h"
+#include "../Processors/PluginProcessor.h"
+#include "../Components/MainComponent.h"
 
 //==============================================================================
 MreverbAudioProcessorEditor::MreverbAudioProcessorEditor (MreverbAudioProcessor& p)
