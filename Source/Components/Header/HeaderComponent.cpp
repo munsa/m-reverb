@@ -11,15 +11,12 @@ HeaderComponent::~HeaderComponent()
 
 void HeaderComponent::paint (Graphics& g)
 {
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
+	// Background colour
+    g.fillAll (Colour(0xff253037));
 
-    g.setColour (Colours::grey);
-    g.drawRect (getLocalBounds(), 1);
-
-    g.setColour (Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("Header", getLocalBounds(),
-                Justification::centred, true);
+	// Logo image
+	Image logo = ImageCache::getFromMemory(BinaryData::logo_mreverb_png, BinaryData::logo_mreverb_pngSize);
+	g.drawImageAt(logo, 0, 0);
 }
 
 void HeaderComponent::resized()
