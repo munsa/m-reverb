@@ -1,42 +1,47 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #include "../Processors/PluginProcessor.h"
 #include "../Components/MainComponent.h"
+#include "../Components/Header/HeaderComponent.h"
 
-//==============================================================================
 MreverbAudioProcessorEditor::MreverbAudioProcessorEditor (MreverbAudioProcessor& p)
     : AudioProcessorEditor (&p), processor (p)
 {
-    // Make sure that before the constructor has finished, you've set the
-    // editor's size to whatever you need it to be.
-    setSize (400, 300);
+    setSize (800, 400);
 }
 
 MreverbAudioProcessorEditor::~MreverbAudioProcessorEditor()
 {
 }
 
-//==============================================================================
 void MreverbAudioProcessorEditor::paint (Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));
+	// Background
+    g.fillAll (Colour(0xff36454f));
 
-    g.setColour (Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Hello World!", getLocalBounds(), Justification::centred, 1);
+	// Header
+	header.setBounds(
+		0, 
+		0, 
+		getWidth(), 
+		50);
+	addAndMakeVisible(header);
+
+	// Body
+	body.setBounds(
+		20, 
+		header.getHeight() + 20, 
+		600, 
+		getHeight() - header.getHeight() - 40);
+	addAndMakeVisible(body);
+
+	// Output
+	output.setBounds(
+		body.getWidth() + 40, 
+		header.getHeight() + 20, 
+		140, 
+		getHeight() - header.getHeight() - 40);
+	addAndMakeVisible(output);
 }
 
 void MreverbAudioProcessorEditor::resized()
 {
-    // This is generally where you'll want to lay out the positions of any
-    // subcomponents in your editor..
 }

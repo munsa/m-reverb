@@ -1,35 +1,27 @@
-/*
-  ==============================================================================
-
-    This file was auto-generated!
-
-    It contains the basic framework code for a JUCE plugin editor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "../Processors/PluginProcessor.h"
+#include "../Components/Header/HeaderComponent.h"
+#include "../Components/Body/BodyComponent.h"
+#include "../Components/Output/OutputComponent.h"
 
-//==============================================================================
-/**
-*/
 class MreverbAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
     MreverbAudioProcessorEditor (MreverbAudioProcessor&);
     ~MreverbAudioProcessorEditor();
-
-    //==============================================================================
+	
     void paint (Graphics&) override;
     void resized() override;
 
 private:
-    // This reference is provided as a quick way for your editor to
-    // access the processor object that created it.
     MreverbAudioProcessor& processor;
+
+	HeaderComponent header;
+	BodyComponent body;
+	OutputComponent output;
+
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MreverbAudioProcessorEditor)
 };
