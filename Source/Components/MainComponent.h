@@ -6,7 +6,8 @@
 #include "../Components/Body/BodyComponent.h"
 #include "../Components/Output/OutputComponent.h"
 
-class MreverbAudioProcessorEditor  : public AudioProcessorEditor
+class MreverbAudioProcessorEditor  : public AudioProcessorEditor,
+									 public Slider::Listener
 {
 public:
     MreverbAudioProcessorEditor (MreverbAudioProcessor&);
@@ -14,6 +15,7 @@ public:
 	
     void paint (Graphics&) override;
     void resized() override;
+	void sliderValueChanged(Slider* slider) override;
 
 private:
     MreverbAudioProcessor& processor;
