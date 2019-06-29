@@ -21,6 +21,7 @@ MreverbAudioProcessorEditor::MreverbAudioProcessorEditor (MreverbAudioProcessor&
 		header.getHeight() + 20,
 		600,
 		getHeight() - header.getHeight() - 40);
+	body.reverbWetKnob.addListener(this);
 	body.reverbDryKnob.addListener(this);
 	addAndMakeVisible(body);
 
@@ -52,6 +53,10 @@ void MreverbAudioProcessorEditor::sliderValueChanged(Slider *slider)
 {
 	if (slider == &output.gainKnob) {
 		processor.gainValue = output.gainKnob.getValue();
+	}
+
+	if (slider == &body.reverbWetKnob) {
+		processor.reverbWetValue = body.reverbWetKnob.getValue();
 	}
 
 	if (slider == &body.reverbDryKnob) {

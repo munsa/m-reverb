@@ -39,6 +39,7 @@ public:
 
 	double gainValue;
 	double reverbDryValue;
+	double reverbWetValue;
 	Reverb reverb;
 	Reverb::Parameters reverbParameters;
 
