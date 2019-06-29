@@ -21,6 +21,10 @@ MreverbAudioProcessorEditor::MreverbAudioProcessorEditor (MreverbAudioProcessor&
 		header.getHeight() + 20,
 		600,
 		getHeight() - header.getHeight() - 40);
+	body.reverbWidthKnob.addListener(this);
+	body.reverbRoomKnob.addListener(this);
+	body.reverbWetKnob.addListener(this);
+	body.reverbDryKnob.addListener(this);
 	addAndMakeVisible(body);
 
 	// Output
@@ -49,7 +53,30 @@ void MreverbAudioProcessorEditor::resized()
 
 void MreverbAudioProcessorEditor::sliderValueChanged(Slider *slider)
 {
+	
+	// Width
+	if (slider == &body.reverbWidthKnob) {
+		processor.reverbWidthValue = body.reverbWidthKnob.getValue();
+	}
+
+	// Room
+	if (slider == &body.reverbRoomKnob) {
+		processor.reverbRoomValue = body.reverbRoomKnob.getValue();
+	}
+
+	// Wet
+	if (slider == &body.reverbWetKnob) {
+		processor.reverbWetValue = body.reverbWetKnob.getValue();
+	}
+
+	// Dry
+	if (slider == &body.reverbDryKnob) {
+		processor.reverbDryValue = body.reverbDryKnob.getValue();
+	}
+	
+	// Gain
 	if (slider == &output.gainKnob) {
 		processor.gainValue = output.gainKnob.getValue();
 	}
+
 }
