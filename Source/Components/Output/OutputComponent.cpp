@@ -13,7 +13,7 @@ OutputComponent::OutputComponent()
 	gainKnob.setSize(100,100);
 	gainKnob.setRange(0.0, 1.0);
 	gainKnob.setValue(1.0);
-	gainKnob.setSkewFactor(0.75);
+	gainKnob.setSkewFactor(0.5);
 	gainKnob.textFromValueFunction = [](double value)
 	{
 		return textFromValueFunction(value);

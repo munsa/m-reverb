@@ -120,6 +120,18 @@ void MreverbAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer
 	// Num Channels
 	const auto numChannels = jmin(totalNumInputChannels, totalNumOutputChannels);
 
+	// Reverb
+	if (reverbDryValue >= 0)
+	{
+		reverbParameters.dryLevel = reverbDryValue;
+		reverb.setParameters(reverbParameters);
+		if (numChannels == 1)
+			reverb.processMono(buffer.getWritePointer(0), buffer.getNumSamples());
+
+		else if (numChannels == 2)
+			reverb.processStereo(buffer.getWritePointer(0), buffer.getWritePointer(1), buffer.getNumSamples());
+	}
+
 	// Gain
 	for (int channel = 0; channel < totalNumInputChannels; ++channel)
 	{

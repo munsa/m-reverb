@@ -5,6 +5,8 @@
 class BodyComponent    : public Component
 {
 public:
+	Slider reverbDryKnob;
+
     BodyComponent();
     ~BodyComponent();
 
