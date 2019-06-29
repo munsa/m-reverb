@@ -1,4 +1,5 @@
 #include "../Utils/FunctionUtils.h"
+#include <iostream>
 
 String textFromValueFunction(double value)
 {
@@ -20,4 +21,4 @@ double valueFromTextFunction(String text)
 	double roundedLevel = ((double)intLevel) / 100.0;
 
 	return roundedLevel / 100.0;
-};
+}
