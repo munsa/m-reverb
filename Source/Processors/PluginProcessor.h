@@ -37,11 +37,13 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
 
-	double gainValue;
+	double reverbWidthValue;
+	double reverbRoomValue;
 	double reverbDryValue;
 	double reverbWetValue;
 	Reverb reverb;
 	Reverb::Parameters reverbParameters;
+	double gainValue;
 
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MreverbAudioProcessor)

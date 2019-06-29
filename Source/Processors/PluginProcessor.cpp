@@ -121,6 +121,20 @@ void MreverbAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer
 	// Num Channels
 	const auto numChannels = jmin(totalNumInputChannels, totalNumOutputChannels);
 
+	// Reverb Width
+	if (reverbWidthValue >= 0)
+	{
+		processReverb = true;
+		reverbParameters.width = reverbWidthValue;
+	}
+
+	// Reverb Room
+	if (reverbRoomValue >= 0)
+	{
+		processReverb = true;
+		reverbParameters.roomSize = reverbRoomValue;
+	}
+
 	// Reverb Wet
 	if (reverbWetValue >= 0)
 	{
